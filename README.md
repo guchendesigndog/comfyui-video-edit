@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-informational)](https://www.python.org/)
 
 Video editing nodes for ComfyUI with **lazy frame-by-frame decoding**, designed to handle large/long videos without OOM crashes.
+
 video course：https://www.bilibili.com/video/BV14NREBPEtR/?spm_id_from=333.1387.homepage.video_card.click&vd_source=67e76ff57f53d4557d6c46c1f690a0c0
 
 ## Features
