@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/27300061/README.md)
+[README.md](https://github.com/user-attachments/files/27300279/README.md)
 # ComfyUI Video Edit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -71,18 +71,18 @@ Search for `ComfyUI-Video-Edit` in ComfyUI Manager and install directly.
 
 ### Detailed Description
 
-| Node Name | Inputs | Outputs |
-|-----------|--------|---------|
-| **Video Load Preview** | `file` (video selector + upload) | `video` (VIDEO), `total_frames` (INT), `fps` (FLOAT), `width` (INT), `height` (INT) |
-| **Video Save** | `video` (VIDEO), `filename_prefix` (string), `format` (auto/mp4/webm/mov/mkv), `codec` (auto/h264/h265/vp9/av1) | Video preview in ComfyUI output |
-| **Video Get Frame** | `video` (VIDEO), `frame_index` (INT, default 0) | `image` (IMAGE) |
-| **Video Get Frames Range** | `video` (VIDEO), `start_frame` (INT), `end_frame` (INT, -1 = last frame) | `images` (IMAGE) |
-| **Video Get Frame Rate** | `video` (VIDEO) | `frame_rate` (INT) |
-| **Video Get Total Frames** | `video` (VIDEO) | `total_frames` (INT) |
-| **Video Crop Region** | `video` (VIDEO), `crop_top`, `crop_bottom`, `crop_left`, `crop_right` (INT) | `video` (VIDEO) |
-| **Image To Video** | `image` (IMAGE), `frame_count` (INT), `frame_rate` (INT) | `video` (VIDEO) |
-| **Video Composite Layer** | `video` (VIDEO), `x`/`y` (FLOAT 0-1), `scale`, `opacity` (FLOAT), `blend_mode`, `order` (INT), `mask` (MASK, optional) | `layer` (VIDEOCOMPOSITE_LAYER) |
-| **Video Composite** | `image` (IMAGE, canvas), `layer1` (required), `layer2`–`layer8` (optional) | `video` (VIDEO) |
+| Node Name | Description | Inputs | Outputs |
+|-----------|-------------|--------|---------|
+| **Video Load Preview** | Load a video file with native preview UI. Lazy loading — frames are decoded only when requested. Supports all common video formats. | `file` (video selector + upload) | `video` (VIDEO), `total_frames` (INT), `fps` (FLOAT), `width` (INT), `height` (INT) |
+| **Video Save** | Save a video to the output directory with format and codec selection, plus native preview in ComfyUI. | `video` (VIDEO), `filename_prefix` (string), `format` (auto/mp4/webm/mov/mkv), `codec` (auto/h264/h265/vp9/av1) | Video preview in ComfyUI output |
+| **Video Get Frame** | Extract a single frame at a specified index. Only decodes that one frame — does not load the rest of the video. | `video` (VIDEO), `frame_index` (INT, default 0) | `image` (IMAGE) |
+| **Video Get Frames Range** | Extract a contiguous range of frames from a video. Uses lazy PyAV decoding to only materialize the requested frames. | `video` (VIDEO), `start_frame` (INT), `end_frame` (INT, -1 means last frame) | `images` (IMAGE) |
+| **Video Get Frame Rate** | Get the frame rate of a video as an integer. Does not decode any frames — reads from file metadata. | `video` (VIDEO) | `frame_rate` (INT) |
+| **Video Get Total Frames** | Get the total number of frames in a video as an integer. Does not decode any frames — reads from file metadata. | `video` (VIDEO) | `total_frames` (INT) |
+| **Video Crop Region** | Crop pixels from edges of a video (top, bottom, left, right). Auto-aligns output to even dimensions. Processes in chunks to bound memory. | `video` (VIDEO), `crop_top` (INT), `crop_bottom` (INT), `crop_left` (INT), `crop_right` (INT) | `video` (VIDEO) |
+| **Image To Video** | Create a still video by repeating a single image for a specified number of frames. Uses `expand()` for zero-copy frame repetition. | `image` (IMAGE), `frame_count` (INT), `frame_rate` (INT) | `video` (VIDEO) |
+| **Video Composite Layer** | Configure one video layer for compositing. Sets position, scale, opacity, blend mode, and stacking order. Only stores configuration — does not process frames. | `video` (VIDEO), `x` (FLOAT, position 0-1), `y` (FLOAT, position 0-1), `scale` (FLOAT), `opacity` (FLOAT), `blend_mode` (normal/add/multiply/screen/overlay), `order` (INT), `mask` (MASK, optional) | `layer` (VIDEOCOMPOSITE_LAYER) |
+| **Video Composite** | Composite up to 8 video layers onto an image canvas. Canvas is always the bottom layer. Layers sorted by `order` (bottom to top). Processes in chunks to bound memory. | `image` (IMAGE, canvas/background), `layer1` (required), `layer2`–`layer8` (optional) | `video` (VIDEO) |
 
 ## How It Works
 
