@@ -1,0 +1,1137 @@
+{
+  "id": "180a38cd-fca8-497a-ac6f-fda43ca6183d",
+  "revision": 0,
+  "last_node_id": 40,
+  "last_link_id": 67,
+  "nodes": [
+    {
+      "id": 37,
+      "type": "LoadVideo",
+      "pos": [
+        -3688.1342007185153,
+        -173.79808712263673
+      ],
+      "size": [
+        1155.1072947692435,
+        2127.524079589766
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            53,
+            54,
+            55,
+            56,
+            57
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "5月2日.mp4",
+        "image"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VideoCropRegion",
+      "pos": [
+        -2409.791950363277,
+        -337.6181961959105
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 54
+        },
+        {
+          "label": "crop_top",
+          "name": "crop_top",
+          "type": "INT",
+          "widget": {
+            "name": "crop_top"
+          },
+          "link": null
+        },
+        {
+          "label": "crop_bottom",
+          "name": "crop_bottom",
+          "type": "INT",
+          "widget": {
+            "name": "crop_bottom"
+          },
+          "link": null
+        },
+        {
+          "label": "crop_left",
+          "name": "crop_left",
+          "type": "INT",
+          "widget": {
+            "name": "crop_left"
+          },
+          "link": null
+        },
+        {
+          "label": "crop_right",
+          "name": "crop_right",
+          "type": "INT",
+          "widget": {
+            "name": "crop_right"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            13,
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoCropRegion"
+      },
+      "widgets_values": [
+        125,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 20,
+      "type": "SaveVideo",
+      "pos": [
+        -2480.666659026098,
+        -133.5547958564312
+      ],
+      "size": [
+        984.0487767654421,
+        2071.4290444856797
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 13
+        },
+        {
+          "label": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "label": "format",
+          "name": "format",
+          "type": "COMBO",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "label": "codec",
+          "name": "codec",
+          "type": "COMBO",
+          "widget": {
+            "name": "codec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "EmptyImage",
+      "pos": [
+        219.9778939788715,
+        -192.1362658760788
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "宽度",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 60
+        },
+        {
+          "label": "高度",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 61
+        },
+        {
+          "label": "批次大小",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        },
+        {
+          "label": "颜色",
+          "name": "color",
+          "type": "INT",
+          "widget": {
+            "name": "color"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            45
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyImage"
+      },
+      "widgets_values": [
+        1920,
+        1080,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 17,
+      "type": "VideoComposite",
+      "pos": [
+        576.363552670386,
+        -138.98295833004872
+      ],
+      "size": [
+        266.4493880855881,
+        346.8824583577778
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 45
+        },
+        {
+          "label": "layer1",
+          "name": "layer1",
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "link": 66
+        },
+        {
+          "label": "layer2",
+          "name": "layer2",
+          "shape": 7,
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "link": 67
+        },
+        {
+          "label": "layer3",
+          "name": "layer3",
+          "shape": 7,
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "link": null
+        },
+        {
+          "label": "layer4",
+          "name": "layer4",
+          "shape": 7,
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "link": null
+        },
+        {
+          "label": "layer5",
+          "name": "layer5",
+          "shape": 7,
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "link": null
+        },
+        {
+          "label": "layer6",
+          "name": "layer6",
+          "shape": 7,
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "link": null
+        },
+        {
+          "label": "layer7",
+          "name": "layer7",
+          "shape": 7,
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "link": null
+        },
+        {
+          "label": "layer8",
+          "name": "layer8",
+          "shape": 7,
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "link": null
+        },
+        {
+          "label": "canvas",
+          "name": "canvas",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            63
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoComposite"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 33,
+      "type": "VideoCompositeLayer",
+      "pos": [
+        207.69531848051935,
+        262.19641456650214
+      ],
+      "size": [
+        270,
+        198
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 41
+        },
+        {
+          "label": "mask",
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "label": "x",
+          "name": "x",
+          "type": "FLOAT",
+          "widget": {
+            "name": "x"
+          },
+          "link": null
+        },
+        {
+          "label": "y",
+          "name": "y",
+          "type": "FLOAT",
+          "widget": {
+            "name": "y"
+          },
+          "link": null
+        },
+        {
+          "label": "scale",
+          "name": "scale",
+          "type": "FLOAT",
+          "widget": {
+            "name": "scale"
+          },
+          "link": null
+        },
+        {
+          "label": "opacity",
+          "name": "opacity",
+          "type": "FLOAT",
+          "widget": {
+            "name": "opacity"
+          },
+          "link": null
+        },
+        {
+          "label": "blend_mode",
+          "name": "blend_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "blend_mode"
+          },
+          "link": null
+        },
+        {
+          "label": "order",
+          "name": "order",
+          "type": "INT",
+          "widget": {
+            "name": "order"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "layer",
+          "name": "layer",
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "links": [
+            67
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoCompositeLayer"
+      },
+      "widgets_values": [
+        0,
+        0,
+        1,
+        1,
+        "normal",
+        0
+      ]
+    },
+    {
+      "id": 39,
+      "type": "SaveVideo",
+      "pos": [
+        910.346783630964,
+        -139.5687274985855
+      ],
+      "size": [
+        1125.735618596279,
+        2056.2924489118886
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 63
+        },
+        {
+          "label": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "label": "format",
+          "name": "format",
+          "type": "COMBO",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "label": "codec",
+          "name": "codec",
+          "type": "COMBO",
+          "widget": {
+            "name": "codec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "VideoCompositeLayer",
+      "pos": [
+        198.07318215040655,
+        -3.3182159135600013
+      ],
+      "size": [
+        270,
+        198
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 43
+        },
+        {
+          "label": "mask",
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "label": "x",
+          "name": "x",
+          "type": "FLOAT",
+          "widget": {
+            "name": "x"
+          },
+          "link": null
+        },
+        {
+          "label": "y",
+          "name": "y",
+          "type": "FLOAT",
+          "widget": {
+            "name": "y"
+          },
+          "link": null
+        },
+        {
+          "label": "scale",
+          "name": "scale",
+          "type": "FLOAT",
+          "widget": {
+            "name": "scale"
+          },
+          "link": null
+        },
+        {
+          "label": "opacity",
+          "name": "opacity",
+          "type": "FLOAT",
+          "widget": {
+            "name": "opacity"
+          },
+          "link": null
+        },
+        {
+          "label": "blend_mode",
+          "name": "blend_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "blend_mode"
+          },
+          "link": null
+        },
+        {
+          "label": "order",
+          "name": "order",
+          "type": "INT",
+          "widget": {
+            "name": "order"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "layer",
+          "name": "layer",
+          "type": "VIDEOCOMPOSITE_LAYER",
+          "links": [
+            66
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoCompositeLayer"
+      },
+      "widgets_values": [
+        0,
+        0.07,
+        1,
+        1,
+        "normal",
+        0
+      ]
+    },
+    {
+      "id": 13,
+      "type": "VideoGetFramesRange",
+      "pos": [
+        -878.1546158793695,
+        -484.0637236031893
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 53
+        },
+        {
+          "label": "start_frame",
+          "name": "start_frame",
+          "type": "INT",
+          "widget": {
+            "name": "start_frame"
+          },
+          "link": null
+        },
+        {
+          "label": "end_frame",
+          "name": "end_frame",
+          "type": "INT",
+          "widget": {
+            "name": "end_frame"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoGetFramesRange"
+      },
+      "widgets_values": [
+        0,
+        -1
+      ]
+    },
+    {
+      "id": 14,
+      "type": "VideoGetTotalFrames",
+      "pos": [
+        -873.44925694609,
+        -333.7686499930712
+      ],
+      "size": [
+        253.95330648310497,
+        37.48951864232009
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 57
+        }
+      ],
+      "outputs": [
+        {
+          "label": "total_frames",
+          "name": "total_frames",
+          "type": "INT",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoGetTotalFrames"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "VideoGetFrameRate",
+      "pos": [
+        -875.5668769070592,
+        -236.55188213920502
+      ],
+      "size": [
+        256.3011113722771,
+        34.231205775537774
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "label": "frame_rate",
+          "name": "frame_rate",
+          "type": "INT",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoGetFrameRate"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "VideoGetFrame",
+      "pos": [
+        -875.6161698388767,
+        -133.87070106894296
+      ],
+      "size": [
+        257.2240637358773,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 55
+        },
+        {
+          "label": "frame_index",
+          "name": "frame_index",
+          "type": "INT",
+          "widget": {
+            "name": "frame_index"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            19,
+            62
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoGetFrame"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "type": "PreviewImage",
+      "pos": [
+        -884.1278920393092,
+        -7.483411601008721
+      ],
+      "size": [
+        255.90531363770856,
+        254.27895097412215
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "图像",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 38,
+      "type": "GetImageSize+",
+      "pos": [
+        -76.61357334397485,
+        -157.00246056655027
+      ],
+      "size": [
+        140,
+        66
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "图像",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 62
+        }
+      ],
+      "outputs": [
+        {
+          "label": "宽度",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            60
+          ]
+        },
+        {
+          "label": "高度",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            61
+          ]
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize+"
+      }
+    },
+    {
+      "id": 40,
+      "type": "LoadImage",
+      "pos": [
+        -569.939405235845,
+        -742.941511419013
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            65
+          ]
+        },
+        {
+          "label": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "asdasd.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "ImageToVideo",
+      "pos": [
+        -234.36104929270027,
+        -741.3413492041445
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 65
+        },
+        {
+          "label": "frame_count",
+          "name": "frame_count",
+          "type": "INT",
+          "widget": {
+            "name": "frame_count"
+          },
+          "link": 21
+        },
+        {
+          "label": "frame_rate",
+          "name": "frame_rate",
+          "type": "INT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "label": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            41
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageToVideo"
+      },
+      "widgets_values": [
+        30,
+        30
+      ]
+    }
+  ],
+  "links": [
+    [
+      13,
+      10,
+      0,
+      20,
+      0,
+      "VIDEO"
+    ],
+    [
+      19,
+      11,
+      0,
+      25,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      14,
+      0,
+      15,
+      1,
+      "INT"
+    ],
+    [
+      22,
+      12,
+      0,
+      15,
+      2,
+      "INT"
+    ],
+    [
+      41,
+      15,
+      0,
+      33,
+      0,
+      "VIDEO"
+    ],
+    [
+      43,
+      10,
+      0,
+      34,
+      0,
+      "VIDEO"
+    ],
+    [
+      45,
+      35,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      53,
+      37,
+      0,
+      13,
+      0,
+      "VIDEO"
+    ],
+    [
+      54,
+      37,
+      0,
+      10,
+      0,
+      "VIDEO"
+    ],
+    [
+      55,
+      37,
+      0,
+      11,
+      0,
+      "VIDEO"
+    ],
+    [
+      56,
+      37,
+      0,
+      12,
+      0,
+      "VIDEO"
+    ],
+    [
+      57,
+      37,
+      0,
+      14,
+      0,
+      "VIDEO"
+    ],
+    [
+      60,
+      38,
+      0,
+      35,
+      0,
+      "INT"
+    ],
+    [
+      61,
+      38,
+      1,
+      35,
+      1,
+      "INT"
+    ],
+    [
+      62,
+      11,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      63,
+      17,
+      0,
+      39,
+      0,
+      "VIDEO"
+    ],
+    [
+      65,
+      40,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      66,
+      34,
+      0,
+      17,
+      1,
+      "VIDEOCOMPOSITE_LAYER"
+    ],
+    [
+      67,
+      33,
+      0,
+      17,
+      2,
+      "VIDEOCOMPOSITE_LAYER"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8140274938684012,
+      "offset": [
+        3788.1342007185153,
+        842.941511419013
+      ]
+    },
+    "frontendVersion": "1.42.15"
+  },
+  "version": 0.4
+}

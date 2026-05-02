@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/27300279/README.md)
 # ComfyUI Video Edit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)

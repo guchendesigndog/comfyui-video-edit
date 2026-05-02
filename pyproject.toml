@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-video-edit"
+description = "Video editing nodes for ComfyUI with lazy frame-by-frame decoding for large video support."
+version = "1.0.0"
+license = { text = "MIT License" }
+dependencies = ["av>=10.0.0"]
+
+[project.urls]
+Repository = "https://github.com/guchendesigndog/comfyui-video-edit"
+
+[tool.comfy]
+PublisherId = "guchendesigndog"
+DisplayName = "ComfyUI-Video-Edit"
+Icon = ""
